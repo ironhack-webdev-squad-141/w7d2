@@ -7,7 +7,12 @@ class MoviesList extends Component {
       return <Movie key={movie.id} data={movie} />;
     });
 
-    return <div>{elements}</div>;
+    return (
+      <div>
+        <button onClick={this.props.addMovie}>Add Movie</button>
+        {elements}
+      </div>
+    );
   }
 }
 

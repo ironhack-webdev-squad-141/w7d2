@@ -10,10 +10,31 @@ class App extends Component {
     movies: data
   };
 
+  addMovie = () => {
+    const newMovie = {
+      hasOscars: true,
+      title: "Interstellar",
+      year: "2014",
+      director: "Christopher Nolan",
+      duration: "2h 49min",
+      genre: ["Adventure", "Drama", "Sci-Fi"],
+      rate: "8.6",
+      id: 31
+    };
+
+    // const updatedMovies = [newMovie, ...this.state.movies];
+
+    const moviesCopy = [...this.state.movies];
+
+    moviesCopy.unshift(newMovie);
+
+    this.setState({ movies: moviesCopy });
+  };
+
   render() {
     return (
       <div className="App">
-        <MoviesList movies={this.state.movies} />
+        <MoviesList addMovie={this.addMovie} movies={this.state.movies} />
         {/* <User firstName="John" lastName="Doe" />
           <User firstName="Jane" lastName="Doe" />
           <User firstName="Michael" />
